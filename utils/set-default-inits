@@ -1,0 +1,8 @@
+#!/bin/bash
+
+MY_HOME=${0%/*}
+default_conf=${MY_HOME}/default.conf
+
+for conf in $(cat ${default_conf} 2>&1); do
+    ${MY_HOME}/inits-manager enable ${conf#*,} ${conf%,*}
+done
