@@ -2,5 +2,7 @@
 site-lisp/
 elpa/
 inits/
+auto-save-list/
 ac-comphist.dat
 helm-adaptive-history
+.last-package-update-day
