@@ -1,7 +1,10 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(cmake-mode))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(defun auto-package-install (pkgs)
+  "Install packages"
+  (dolist (pkg pkgs)
+    (unless (package-installed-p pkg)
+      (package-install pkg))))
+
+(auto-package-install '(cmake-mode))
 
 (require 'cmake-mode)
 (setq auto-mode-alist
