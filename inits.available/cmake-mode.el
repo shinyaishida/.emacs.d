@@ -1,9 +1,3 @@
-(defun auto-package-install (pkgs)
-  "Install packages"
-  (dolist (pkg pkgs)
-    (unless (package-installed-p pkg)
-      (package-install pkg))))
-
 (auto-package-install '(cmake-mode))
 
 (require 'cmake-mode)

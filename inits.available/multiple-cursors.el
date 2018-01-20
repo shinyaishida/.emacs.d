@@ -1,7 +1,4 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(multiple-cursors))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install '(multiple-cursors))
 
 (add-to-list 'load-path (local-path-to "multiple-cursors"))
 (require 'multiple-cursors)

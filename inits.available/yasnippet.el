@@ -1,7 +1,4 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(yasnippet))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install '(yasnippet))
 
 (defvar yasnippet-home (local-path-to "yasnippet"))
 (add-to-list 'load-path yasnippet-home)

@@ -1,7 +1,4 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(helm))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install '(helm))
 
 (add-to-list 'load-path (local-path-to "helm"))
 (require 'helm-config)

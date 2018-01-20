@@ -1,7 +1,4 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(auto-complete))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install '(auto-complete))
 
 (defvar ac-home (local-path-to "auto-complete"))
 (add-to-list 'load-path ac-home)

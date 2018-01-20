@@ -1,7 +1,4 @@
-; Install prerequisite packages automatically.
-(dolist (pkg '(magit))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install '(magit))
 
 (add-to-list 'load-path (local-path-to "magit"))
 (require 'magit)

@@ -4,6 +4,11 @@
 (defun local-path-to (rel_path)
   "Converts a relative path in the local site-lisp to the absolute path."
   (concat local-site-lisp-dir "/" rel_path))
+(defun auto-package-install (pkgs)
+  "Install packages if they have not been installed yet."
+  (dolist (pkg pkgs)
+    (unless (package-installed-p pkg)
+      (package-install pkg))))
 (defvar prerequisite-packages
   '(init-loader auto-package-update) "prerequisite packages")
 
@@ -13,9 +18,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 (unless package-archive-contents (package-refresh-contents))
-(dolist (pkg prerequisite-packages)
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(auto-package-install prerequisite-packages)
 
 ;; Update installed packages
 (require 'auto-package-update)
