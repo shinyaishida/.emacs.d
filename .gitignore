@@ -7,3 +7,4 @@ ac-comphist.dat
 helm-adaptive-history
 .last-package-update-day
 /recentf
+/.mc-lists.el
