@@ -51,6 +51,9 @@
 ;; remove ^M
 (add-hook 'comint-output-filter-functions 'shell-strip-ctrl-m nil t)
 
+;; untabify by default
+(setq-default tab-width 4 indent-tabs-mode nil)
+
 ;; complementation
 (setq shell-file-name-chars "~/A-Za-z0-9_^$!#%&{}@'`.,;()-")
 
