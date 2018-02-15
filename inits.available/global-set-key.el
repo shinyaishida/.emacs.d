@@ -24,7 +24,9 @@
 
 
 ; for editorial work
-(global-set-key (kbd "C-h") 'delete-backward-char)
+(keyboard-translate ?\C-h ?\C-?)
+(keyboard-translate ?\C-? ?\C-h)
+;(global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-/") 'undo)
 (global-set-key (kbd "C-\\") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-S-d") 'delete-word)
