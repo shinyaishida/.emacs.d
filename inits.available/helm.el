@@ -9,6 +9,14 @@
 ; Disable the automatic completion by helm and use tab-completion instead.
 (custom-set-variables '(helm-ff-auto-update-initial-value nil))
 
+; Rebind "C-x C-c" to disable the default key binding for exiting emacs.
+(global-set-key (kbd "C-x C-c") 'helm-M-x)
+; Use "M-x bye" or "M-x exit" instead to exit emacs.
+(defalias 'bye 'save-buffers-kill-emacs)
+(defalias 'exit 'save-buffers-kill-emacs)
+
+(global-set-key (kbd "C-x m") 'helm-mini)
+
 ; Enable backspace by C-h in helm.
 ;(define-key helm-map (kbd "C-a") 'move-beginning-of-line)
 (define-key helm-map (kbd "C-S-d") 'delete-word)

@@ -35,7 +35,7 @@
                        ("o" . 'mc/sort-regions)
                        ("O" . 'mc/reverse-regions)))
 
-; suppress keystroke echo
+; suppress keystroke echo while hitting command strokes
 (defadvice smartrep-map-internal (around smartrep-silence-echo-keystrokes activate)
   (let ((echo-keystrokes 0))
     ad-do-it))
