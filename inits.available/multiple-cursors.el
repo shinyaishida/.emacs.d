@@ -13,6 +13,11 @@
   (interactive)
   (mc/mark-previous-like-this 1)
   (mc/cycle-backward))
+(define-key isearch-mode-map (kbd "C-m")
+  #'(lambda ()
+      (interactive)
+      (push-mark isearch-other-end t 'activate)
+      (isearch-exit)))
 (global-set-key (kbd "C-M-c") 'mc/edit-lines)
 (global-set-key (kbd "C-M-r") 'mc/mark-all-in-region)
 (global-unset-key "\C-t")
@@ -29,3 +34,8 @@
                        ("i" . 'mc/insert-numbers)
                        ("o" . 'mc/sort-regions)
                        ("O" . 'mc/reverse-regions)))
+
+; suppress keystroke echo
+(defadvice smartrep-map-internal (around smartrep-silence-echo-keystrokes activate)
+  (let ((echo-keystrokes 0))
+    ad-do-it))
