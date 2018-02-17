@@ -42,7 +42,6 @@
       (progn
         (indent-buffer)
         (message "Indented buffer.")))))
-(global-set-key (kbd "C-i") 'indent-region-or-buffer)
 
 (global-set-key (kbd "C-c C-f") 'load-file)
 (global-set-key (kbd "C-c C-e") 'eval-region)
