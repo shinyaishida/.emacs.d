@@ -56,8 +56,9 @@
 ;; complementation
 (setq shell-file-name-chars "~/A-Za-z0-9_^$!#%&{}@'`.,;()-")
 
-;; remove trailing white spaces on saving a file.
+;; format buffer on saving a file.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'indent-buffer)
 
 ;; set mark on string found by incremental search.
 (define-key isearch-mode-map (kbd "C-m")
