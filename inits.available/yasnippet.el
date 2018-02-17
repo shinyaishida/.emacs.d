@@ -15,13 +15,13 @@
 ;; (add-hook 'c++-mode-hook 'yas-minor-mode-on)
 ;; (add-hook 'shell-script-mode-hook 'yas-minor-mode-on)
 
-;(custom-set-variables '(yas-trigger-key "TAB"))
+;;(custom-set-variables '(yas-trigger-key "TAB"))
 
 (define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
 (define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
 (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
-; snippet mode for *.yasnippet and *.yas files
+;; snippet mode for *.yasnippet and *.yas files
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 (add-to-list 'auto-mode-alist '("\\.yas$" . snippet-mode))
 
@@ -35,8 +35,8 @@
 ;; Support by helm
 ;;
 
-; Overwrite function yas-visit-snippet-file so as to work with helm.
-; This part is extracted from yasnippet.el.
+;; Overwrite function yas-visit-snippet-file so as to work with helm.
+;; This part is extracted from yasnippet.el.
 (defun yas-visit-snippet-file ()
   "Choose a snippet to edit, selection like `yas-insert-snippet'.
 Only success if selected snippet was loaded from a file.  Put the
@@ -44,19 +44,18 @@ visited file in `snippet-mode'."
   (interactive)
   (let* ((yas-buffer-local-condition 'always)
          (templates (yas--all-templates (yas--get-snippet-tables)))
-;         (yas-prompt-functions '(yas-ido-prompt yas-completing-prompt))
+         ;;(yas-prompt-functions '(yas-ido-prompt yas-completing-prompt))
          (template (and templates
-                        (or (yas--prompt-for-template templates
-						      "Choose a snippet template to edit: ")
+                        (or (yas--prompt-for-template templates "Choose a snippet template to edit: ")
                             (car templates)))))
     (if template
         (yas--visit-snippet-file-1 template)
       (message "No snippets tables active!"))))
 
-; Interface to helm
-;(custom-set-variables
-; '(yas/trigger-key "M-o")
-; '(yas/snippet-dirs yas-snippet-dirs))
+;; Interface to helm
+;;(custom-set-variables
+;; '(yas/trigger-key "M-o")
+;; '(yas/snippet-dirs yas-snippet-dirs))
 (eval-after-load "helm-config"
   '(progn
      (defun my-yas/prompt (prompt choices &optional display-fn)

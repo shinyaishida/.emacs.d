@@ -47,7 +47,7 @@
 
 ;; Ignore syntax-check failure
 (defadvice flymake-post-syntax-check
-  (before flymake-force-check-was-interrupted activate)
+    (before flymake-force-check-was-interrupted activate)
   (setq flymake-check-was-interrupted t))
 
 ;; Disable annoying warning popup dialog.

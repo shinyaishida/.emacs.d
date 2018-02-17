@@ -24,7 +24,7 @@
 (require 'auto-package-update)
 (setq auto-package-update-delete-old-versions t)
 (add-hook 'auto-package-update-before-hook
-	  (lambda () (message "Update packages")))
+          (lambda () (message "Update packages")))
 (auto-package-update-maybe)
 
 ;; Load additional configurations by init-loader
@@ -42,7 +42,7 @@
  '(helm-ff-auto-update-initial-value nil)
  '(package-selected-packages
    (quote
-    (auto-complete package-utils init-loader helm auto-package-update)))
+    (smartrep multiple-cursors auto-complete package-utils init-loader helm auto-package-update)))
  '(yas-prompt-functions (quote (my-yas/prompt))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

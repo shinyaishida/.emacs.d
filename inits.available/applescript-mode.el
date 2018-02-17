@@ -2,6 +2,4 @@
     (lambda ()
       (add-to-list 'load-path (local-path-to "applescript"))
       (autoload 'applescript-mode "applescript-mode" "AppleScript" t)
-      (setq auto-mode-alist (cons '("\\.scpt$" . applescript-mode) auto-mode-alist))
-      )
-)
+      (setq auto-mode-alist (cons '("\\.scpt$" . applescript-mode) auto-mode-alist))))

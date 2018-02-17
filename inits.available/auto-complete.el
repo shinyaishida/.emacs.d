@@ -8,7 +8,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (local-path-to "auto-complete/dict"))
 
-;(add-to-list 'ac-modes 'helm-mode)
+;;(add-to-list 'ac-modes 'helm-mode)
 (add-to-list 'ac-modes 'cc-mode)
 (add-to-list 'ac-modes 'c-mode)
 (add-to-list 'ac-modes 'c++-mode)
@@ -78,7 +78,7 @@
 (setq ac-ignore-case 'smart)
 (global-auto-complete-mode t)
 
-; Use C-n/C-p to select a candidate in a pop-up menu.
+                                        ; Use C-n/C-p to select a candidate in a pop-up menu.
 (setq ac-use-menu-map t)
 (define-key ac-menu-map (kbd "C-n") 'ac-next)
 (define-key ac-menu-map (kbd "C-p") 'ac-previous)

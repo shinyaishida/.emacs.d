@@ -58,3 +58,10 @@
 
 ;; remove trailing white spaces on saving a file.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; set mark on string found by incremental search.
+(define-key isearch-mode-map (kbd "C-m")
+  #'(lambda ()
+      (interactive)
+      (push-mark isearch-other-end t 'activate)
+      (isearch-exit)))

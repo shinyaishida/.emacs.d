@@ -9,7 +9,7 @@
          (local-set-key (kbd "M-s") 'gtags-find-symbol) ; find variable definition
          (local-set-key (kbd "C-t") 'gtags-pop-stack) ; rollback
 
-	 (setq gtags-auto-update t)
+         (setq gtags-auto-update t)
          (setq gtags-select-buffer-single t) ; use only a single buffer
          (setq helm-c-gtags-path-style 'root)
          (setq helm-c-gtags-ignore-case nil)
