@@ -58,7 +58,7 @@
 
 ;; format buffer on saving a file.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'before-save-hook 'indent-buffer)
+;; (add-hook 'before-save-hook 'indent-buffer)
 
 ;; set mark on string found by incremental search.
 (define-key isearch-mode-map (kbd "C-m")
