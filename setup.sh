@@ -1,15 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 readonly emacsd=.emacs.d
-readonly emacsel=.emacs.el
-readonly inits=inits
+readonly emacs_home=$HOME/${emacsd}
+readonly inits=${emacs_home}/inits
+readonly init_manager=${emacs_home}/utils/init-manager
 
-cd $HOME
-[ -e ${emacsd} ] && {
-  echo "$HOME/${emacsd} exists"
+[ -e ${emacs_home} ] && {
+  echo "${emacs_home} exists"
 } || {
-  readonly pwd=${0%/*}
-  ln -s ${pwd} ${emacsd}
+  ln -s $(cd ${0%/*}; pwd) ${emacs_home}
 }
 [ -e ${inits} ] && {
   echo "${inits} exists"
@@ -17,5 +16,4 @@ cd $HOME
   echo "create ${inits}"
   mkdir ${inits}
 }
-echo "use $HOME/${emacsd}/utils/init-manager to manage loaders"
-cd - > /dev/null
+echo "use ${init_manager} to manage loaders"
