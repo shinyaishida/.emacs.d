@@ -4,19 +4,20 @@ emacs.el
 ## Install
 
 ```bash
+% git clone https@github.com:shinyaishida/emacs.git ~/.emacs.d
+% ~/.emacs.d/setup.sh
+```
+or
+```bash
 % mkdir <somewhere/you/wanna/put/it>
 % cd !$
-% git clone git@github.com:shinyaishida/emacs.git
-% cd
-% ln -s <somewhere/you/wanna/put/it> .emacs.d
-% ln -s .emacs.d/emacs.el .emacs.el
-% .emacs.d/utils/set-default-inits
-```
+% git clone https@github.com:shinyaishida/emacs.git
+% emacs/setup.sh
 
 ## Usage
 
 ```bash
-% .emacs.d/utils/inits-manager help
+% .emacs.d/inits/inits-manager help
 ```
 
 ## License

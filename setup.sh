@@ -3,7 +3,7 @@
 readonly emacsd=.emacs.d
 readonly emacs_home=$HOME/${emacsd}
 readonly inits=${emacs_home}/inits
-readonly init_manager=${emacs_home}/utils/init-manager
+readonly inits_manager=${emacs_home}/utils/inits-manager
 
 [ -e ${emacs_home} ] && {
   echo "${emacs_home} exists"
@@ -16,4 +16,4 @@ readonly init_manager=${emacs_home}/utils/init-manager
   echo "create ${inits}"
   mkdir ${inits}
 }
-echo "use ${init_manager} to manage loaders"
+echo "use ${inits_manager} to manage loaders"

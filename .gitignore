@@ -1,8 +1,8 @@
 *.elc
 site-lisp/
 elpa/
-inits/
 auto-save-list/
+inits/[0-9][0-9]_*
 ac-comphist.dat
 helm-adaptive-history
 .last-package-update-day
