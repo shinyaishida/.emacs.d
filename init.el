@@ -40,7 +40,7 @@
   (require 'use-package))
 
 ;; Load additional configurations by init-loader
-(require 'init-loader)
+(use-package init-loader)
 (init-loader-load (concat user-emacs-directory "/inits"))
 
 ;;; init.el ends here

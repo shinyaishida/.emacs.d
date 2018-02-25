@@ -1,4 +1,4 @@
 (auto-package-install '(feature-mode))
 
-(require 'feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+(use-package feature-mode
+  :mode (("\.feature$" . feature-mode)))
