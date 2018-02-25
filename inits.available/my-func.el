@@ -1,6 +1,7 @@
 (defun reset-emacs ()
   "Reload .emacs"
   (interactive)
+  ;; FIXME: path is wrong.
   (load-file "~/.emacs"))
 
 (defun indent-buffer ()

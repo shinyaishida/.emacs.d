@@ -2,6 +2,7 @@
 
 ;;(add-to-list 'load-path (local-path-to "helm"))
 (use-package helm-config
+  :defer t
   :bind (("C-x C-c" . helm-M-x)
          ("C-x m" . helm-mini)
          :map helm-map

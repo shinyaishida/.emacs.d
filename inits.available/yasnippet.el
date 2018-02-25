@@ -3,6 +3,7 @@
 (defvar yasnippet-home (local-path-to "yasnippet"))
 (add-to-list 'load-path yasnippet-home)
 (use-package yasnippet
+  :defer t
   :mode (("\\.yasnippet$" . snippet-mode)
          ("\\.yas$" . snippet-mode))
   :config

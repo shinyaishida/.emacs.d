@@ -7,6 +7,7 @@
 (add-to-list 'load-path (concat ac-home "/lib/popup"))
 
 (use-package auto-complete-config
+  :defer t
   :config
   (add-to-list 'ac-dictionary-directories (local-path-to "auto-complete/dict"))
 
@@ -80,7 +81,7 @@
   (setq ac-ignore-case 'smart)
   (global-auto-complete-mode t)
 
-                                        ; Use C-n/C-p to select a candidate in a pop-up menu.
+  ;; Use C-n/C-p to select a candidate in a pop-up menu.
   (setq ac-use-menu-map t)
   (define-key ac-menu-map (kbd "C-n") 'ac-next)
   (define-key ac-menu-map (kbd "C-p") 'ac-previous)

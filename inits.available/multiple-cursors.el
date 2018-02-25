@@ -1,18 +1,17 @@
 (auto-package-install '(smartrep multiple-cursors))
 
-;;(add-to-list 'load-path (local-path-to "multiple-cursors"))
-(use-package smartrep
-  :init
-  (declare-function smartrep-define-key "smartrep")
-  ;; suppress keystroke echo while hitting command strokes
-  (defadvice smartrep-map-internal (around smartrep-silence-echo-keystrokes activate)
-    (let ((echo-keystrokes 0))
-      ad-do-it)))
-
 (use-package multiple-cursors
+  :defer t
   :bind (("C-M-c" . mc/edit-lines)
          ("C-M-r" . mc/mark-all-in-region))
   :init
+  (use-package smartrep
+    :init
+    (declare-function smartrep-define-key "smartrep")
+    ;; suppress keystroke echo while hitting command strokes
+    (defadvice smartrep-map-internal (around smartrep-silence-echo-keystrokes activate)
+      (let ((echo-keystrokes 0))
+        ad-do-it)))
   (defun mc/mark-next-like-this-and-cycle-forward ()
     (interactive)
     (mc/mark-next-like-this 1)
