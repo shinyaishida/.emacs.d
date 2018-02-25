@@ -1,5 +1,4 @@
-(auto-package-install '(feature-mode))
-
 (use-package feature-mode
+  :ensure t
   :defer t
   :mode (("\.feature$" . feature-mode)))

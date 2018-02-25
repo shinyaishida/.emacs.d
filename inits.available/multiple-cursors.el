@@ -1,13 +1,14 @@
-(auto-package-install '(smartrep multiple-cursors))
-
 (use-package multiple-cursors
+  :ensure t
   :defer t
   :bind (("C-M-c" . mc/edit-lines)
          ("C-M-r" . mc/mark-all-in-region))
   :init
   (use-package smartrep
+    :ensure t
     :init
     (declare-function smartrep-define-key "smartrep")
+    :config
     ;; suppress keystroke echo while hitting command strokes
     (defadvice smartrep-map-internal (around smartrep-silence-echo-keystrokes activate)
       (let ((echo-keystrokes 0))
@@ -20,6 +21,7 @@
     (interactive)
     (mc/mark-previous-like-this 1)
     (mc/cycle-backward))
+  :config
   (global-unset-key "\C-^")
   (smartrep-define-key
       global-map "\C-^" '(("n" . 'mc/mark-next-like-this-and-cycle-forward)

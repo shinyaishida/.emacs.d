@@ -1,5 +1,3 @@
-(auto-package-install '(auto-complete))
-
 (defvar ac-home (local-path-to "auto-complete"))
 (add-to-list 'load-path ac-home)
 (add-to-list 'load-path (concat ac-home "/lib/ert"))
@@ -7,6 +5,7 @@
 (add-to-list 'load-path (concat ac-home "/lib/popup"))
 
 (use-package auto-complete-config
+  :ensure auto-complete
   :defer t
   :config
   (add-to-list 'ac-dictionary-directories (local-path-to "auto-complete/dict"))

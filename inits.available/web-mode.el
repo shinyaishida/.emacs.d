@@ -1,6 +1,5 @@
-(auto-package-install '(web-mode))
-
 (use-package web-mode
+  :ensure t
   :defer t
   :mode (("\\.phtml$" . web-mode)
          ("\\.tpl\\.php$" . web-mode)

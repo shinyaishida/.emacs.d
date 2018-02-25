@@ -1,7 +1,5 @@
-(auto-package-install '(helm))
-
-;;(add-to-list 'load-path (local-path-to "helm"))
 (use-package helm-config
+  :ensure helm
   :defer t
   :bind (("C-x C-c" . helm-M-x)
          ("C-x m" . helm-mini)
