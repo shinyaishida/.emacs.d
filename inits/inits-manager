@@ -85,7 +85,7 @@ function __EnableLoader() {
     mv ${sym_link} ${order}_${loader}
     echo "changed the order of ${loader} from ${sym_link%%_*} to ${order}"
   } || {
-    ln -s ../${inits_avail_dir}/${loader} ${order}_${loader}
+    ln -s ${inits_avail_dir}/${loader} ${order}_${loader}
 	echo "enabled ${loader} at ${order}"
   }
   cd .. &>/dev/null
