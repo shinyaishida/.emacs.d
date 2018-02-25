@@ -2,11 +2,10 @@
 ;;; Commentary:
 ;;;   Emacs startup file
 ;;; Code:
-(defconst local-emacs-home "~/.emacs.d" "The path to the local emacs directory")
 (defconst local-site-lisp-dir
-  (concat local-emacs-home "/elpa") "The path to a local site-lisp directory")
+  (concat user-emacs-directory "/elpa") "The path to a local site-lisp directory")
 (defun local-path-to (rel_path)
-  "Converts a relative path in the local site-lisp to the absolute path."
+  "Convert a relative path in the local site-lisp to the absolute path."
   (concat local-site-lisp-dir "/" rel_path))
 (defun auto-package-install (pkgs)
   "Install packages if they have not been installed yet."
@@ -14,7 +13,12 @@
     (unless (package-installed-p pkg)
       (package-install pkg))))
 (defvar prerequisite-packages
-  '(init-loader auto-package-update) "prerequisite packages")
+  '(init-loader auto-package-update use-package) "prerequisite packages")
+
+;; Save custom variables in a separate file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; Use package.el to manage packages
 (require 'package)
@@ -31,26 +35,12 @@
           (lambda () (message "Update packages")))
 (auto-package-update-maybe)
 
+;; Use use-package macro
+(eval-when-compile
+  (require 'use-package))
+
 ;; Load additional configurations by init-loader
 (require 'init-loader)
-(init-loader-load (concat local-emacs-home "/inits"))
+(init-loader-load (concat user-emacs-directory "/inits"))
 
-;;
-;; end of file
-;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(helm-ff-auto-update-initial-value nil)
- '(package-selected-packages
-   (quote
-    (smartrep multiple-cursors auto-complete package-utils init-loader helm auto-package-update)))
- '(yas-prompt-functions (quote (my-yas/prompt))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;;; init.el ends here
