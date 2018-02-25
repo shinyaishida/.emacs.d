@@ -2,11 +2,6 @@
 ;;; Commentary:
 ;;;   Emacs startup file
 ;;; Code:
-(defconst local-site-lisp-dir
-  (concat user-emacs-directory "/elpa") "The path to a local site-lisp directory")
-(defun local-path-to (rel_path)
-  "Convert a relative path in the local site-lisp to the absolute path."
-  (concat local-site-lisp-dir "/" rel_path))
 
 ;; Save custom variables in a separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

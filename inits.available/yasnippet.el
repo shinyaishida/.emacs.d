@@ -3,10 +3,6 @@
   :defer t
   :mode (("\\.yasnippet$" . snippet-mode)
          ("\\.yas$" . snippet-mode))
-  :init
-  ;; FIXME: need yasnippet-home?
-  (defvar yasnippet-home (local-path-to "yasnippet"))
-  (add-to-list 'load-path yasnippet-home)
   :config
   (bind-keys :map yas-minor-mode-map
              ("C-x i i" . yas-insert-snippet)
