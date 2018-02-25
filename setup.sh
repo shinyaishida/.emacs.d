@@ -1,25 +1,21 @@
 #!/bin/sh
 
-pwd=$(pwd)/${0%%setup.sh}
-emacsd=.emacs.d
-emacsel=.emacs.el
-inits=inits
+readonly emacsd=.emacs.d
+readonly emacsel=.emacs.el
+readonly inits=inits
 
 cd $HOME
 [ -e ${emacsd} ] && {
   echo "$HOME/${emacsd} exists"
 } || {
+  readonly pwd=${0%/*}
   ln -s ${pwd} ${emacsd}
-}
-[ -e ${emacsel} ] && {
-  echo "$HOME/${emacsel} exists"
-} || {
-  ln -s ${emacsd}/emacs.el ${emacsel}
 }
 [ -e ${inits} ] && {
   echo "${inits} exists"
 } || {
+  echo "create ${inits}"
   mkdir ${inits}
-  echo "use utils/init-manager to enable loaders"
 }
+echo "use $HOME/${emacsd}/utils/init-manager to manage loaders"
 cd - > /dev/null

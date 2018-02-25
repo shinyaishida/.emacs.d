@@ -1,3 +1,7 @@
+;;; init.el --- Initialization file for Emacs
+;;; Commentary:
+;;;   Emacs startup file
+;;; Code:
 (defconst local-emacs-home "~/.emacs.d" "The path to the local emacs directory")
 (defconst local-site-lisp-dir
   (concat local-emacs-home "/elpa") "The path to a local site-lisp directory")
