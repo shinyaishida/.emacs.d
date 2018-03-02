@@ -27,11 +27,11 @@ readonly cmd_usage=$(cat <<EOF
 EOF
          )
 
-readonly ErrorCodeCommandError=3
-readonly ErrorCodeLoaderNotAvailable=4
-readonly ErrorCodeInvalidOrder=6
-readonly ErrorCodeLoaderNotFound=7
-readonly ErrorCodeLoaderNotEnabled=8
+readonly error_code_command_error=3
+readonly error_code_loader_not_available=4
+readonly error_code_invalid_order=6
+readonly error_code_loader_not_found=7
+readonly error_code_loader_not_enabled=8
 
 function __PrintError() {
   echo $* 1>&2
@@ -47,7 +47,7 @@ function __PrintCommandError() {
 unknown command '${given_cmd}'
 see help by '${me} ${cmd_help}'
 EOF
-  return ${ErrorCodeCommandError}
+  return ${error_code_command_error}
 }
 
 function __FormatLoaderName() {
@@ -67,7 +67,7 @@ function __EnableLoader() {
   local -r loader=$(__FormatLoaderName $1)
   [ ! -f "${inits_avail_dir}/${loader}" ] && {
     __PrintError "'$1' not available"
-    return ${ErrorCodeLoaderNotAvailable}
+    return ${error_code_loader_not_available}
   }
   local sym_link=$(${bash_ls} ${inits_dir}/[0-9][0-9]_${loader} 2>/dev/null)
   [ -L "${sym_link}" ] && {
@@ -78,7 +78,7 @@ function __EnableLoader() {
   local -r order=$(__FormatOrder $2)
   [[ "${order}" != [0-9][0-9] ]] && {
     __PrintError "invalid order '$2'; use exact two digits"
-    return ${ErrorCodeInvalidOrder}
+    return ${error_code_invalid_order}
   }
   cd ${inits_dir} &>/dev/null
   [ "${sym_link}" ] && {
@@ -95,12 +95,12 @@ function __DisableLoader() {
   local -r loader=$(__FormatLoaderName $1)
   [ ! -f "${inits_avail_dir}/${loader}" ] && {
     __PrintError "'$1' not available"
-    return ${ErrorCodeLoaderNotFound}
+    return ${error_code_loader_not_found}
   }
   local -r sym_link=$(__GetLinkTo ${loader})
   [ ! -f "${sym_link-}" ] && {
     __PrintError "'$1' not enabled"
-    return ${ErrorCodeLoaderNotEnabled}
+    return ${error_code_loader_not_enabled}
   }
   rm -f ${sym_link} 2>/dev/null
   echo "disabled ${loader}"
