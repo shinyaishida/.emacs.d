@@ -1,6 +1,6 @@
 (use-package midnight
   :ensure t
-  :init
+  :config
   ;;kill buffers if they were last disabled more than this seconds ago
   (setq clean-buffer-list-delay-special 900)
 
