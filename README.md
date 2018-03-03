@@ -1,18 +1,13 @@
 emacs.el
 ====
 
-## Install
+## Installation
 
 ```bash
-% git clone https@github.com:shinyaishida/emacs.git ~/.emacs.d
-% ~/.emacs.d/setup.sh
+% cd
+% git clone https@github.com:shinyaishida/.emacs.d.git
+% .emacs.d/setup.sh
 ```
-or
-```bash
-% mkdir <somewhere/you/wanna/put/it>
-% cd !$
-% git clone https@github.com:shinyaishida/emacs.git
-% emacs/setup.sh
 
 ## Usage
 
