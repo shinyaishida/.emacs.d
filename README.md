@@ -1,4 +1,4 @@
-emacs.el
+~/.emacs.d
 ====
 
 ## Installation
