@@ -35,3 +35,4 @@
 (global-set-key (kbd "C-.") 'delete-word) ; alias for emacs on console
 (global-set-key (kbd "C-S-h") 'delete-word-backward)
 (global-set-key (kbd "C-,") 'delete-word-backward) ; alias for emacs on console
+(global-set-key (kbd "C-x @") 'balance-windows)
