@@ -3,7 +3,7 @@
 readonly emacsd=.emacs.d
 readonly emacs_home=$HOME/${emacsd}
 readonly inits=${emacs_home}/inits
-readonly inits_manager=${emacs_home}/utils/inits-manager
+readonly inits_manager=${emacs_home}/inits/inits-manager
 
 [ -e ${emacs_home} ] && {
   echo "${emacs_home} exists"
