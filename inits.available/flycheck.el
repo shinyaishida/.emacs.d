@@ -10,4 +10,8 @@
   (add-hook 'js2-jsx-mode-hook
             '(lambda ()
                (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
-               (flycheck-mode 1))))
+               (flycheck-mode 1)))
+  (add-hook 'coffee-mode-hook
+            '(lambda ()
+               (setq flycheck-checker 'coffee)
+               (flycheck-mode 1)))
