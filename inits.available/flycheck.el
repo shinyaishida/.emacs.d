@@ -14,4 +14,4 @@
   (add-hook 'coffee-mode-hook
             '(lambda ()
                (setq flycheck-checker 'coffee)
-               (flycheck-mode 1)))
+               (flycheck-mode 1))))
