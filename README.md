@@ -5,7 +5,7 @@
 
 ```bash
 % cd
-% git clone https@github.com:shinyaishida/.emacs.d.git
+% git clone https://github.com/shinyaishida/.emacs.d.git
 % .emacs.d/setup.sh
 ```
 
