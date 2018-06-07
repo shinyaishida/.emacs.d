@@ -6,7 +6,8 @@
          ("\\.jsp$" . web-mode)
          ("\\.as[cp]x$" . web-mode)
          ("\\.erb$" . web-mode)
-         ("\\.html?$" . web-mode))
+         ("\\.html?$" . web-mode)
+         ("\\.css$". web-mode))
   :config
   (defun my-web-mode-hook ()
     "hooks for web mode."
