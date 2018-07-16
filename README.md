@@ -7,6 +7,7 @@
 % cd
 % git clone https://github.com/shinyaishida/.emacs.d.git
 % .emacs.d/setup.sh
+% .emacs.d/inits/inits-manager default
 ```
 
 ## Usage
